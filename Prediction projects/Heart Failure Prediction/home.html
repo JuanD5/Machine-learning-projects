@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Heart Failure Prediction</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      
+  </head>
+
+  <body>
+
+    <!-- Website Title -->
+    <div class="container">
+        <h2 class='container-heading'><span class="heading_font">Heart Failure Predictor</span></h2>
+        <div class='description'>
+            <p> Welcome, This is a machine learning app deployed on google cloud.</p>
+        </div>
+    </div>
+
+
+
+    <!-- Text Area -->
+    <div class="ml-container">
+
+      <!-- Input values for the random forest model. -->
+      <form action="{{ url_for('predict')}}"method="post">
+
+        <input class="form-input" type="text" name="ejection_fraction" placeholder="Ejection Fraction (percentage) eg. 20" required="required" /><br>
+        <input class="form-input" type="text" name="serum_creatinine" placeholder="Serum Creatinine (mg/dL) eg. 1.9" required="required" /><br>
+        <input class="form-input" type="text" name="age" placeholder="Age (years) eg. 20" required="required" /><br>
+        <input class="form-input" type="text" name="creatinine_phosphokinase" placeholder="Creatinine phosphokinase (mcg/L) eg. 111" required="required" /><br>
+        <input class="form-input" type="text" name="platelets" placeholder="Platelets (kiloplatelets/mL) eg. 162000" required="required" /><br>
+        <input class="form-input" type="text" name="serum_sodium'" placeholder="Serum sodium (mEq/L) eg. 129" required="required" /><br>
+        <input class="form-input" type="text" name="sex" placeholder="Sex (number : male 1 - female 0) " required="required" /><br>
+
+        <input type="submit" class="my-cta-button" value="Predict">
+
+      </form>
+
+    </div>
+  
+  </body>
+
+</html>
